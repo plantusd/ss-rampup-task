@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  db:
+    build:
+      context: ./docker/mssql/
+      dockerfile: ./Dockerfile
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Passw0rd"
+      ACCEPT_EULA: Y
+
+  cnc-redis:
+    image: redis:6.2
+    ports:
+      - "6379:6379"
+
